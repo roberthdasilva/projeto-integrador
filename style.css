@@ -1,0 +1,14 @@
+:root{
+    /*CORES DAS FONTES*/
+    --branco: #FFFFFF;
+    --verde-profundo: #5D5E3E;
+
+    /*CORES DA PÁGINA*/
+    --verde-principal: #7DBC7A;
+    --verde-secundario: #A0D49E;
+    --fundo-verde-claro: #E3F9E2;
+    --background-color: #F8F8F3;
+
+    /*DETALHES (LINHAS, ETC)*/
+    --cinza: #DFDDDB;
+}
