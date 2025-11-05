@@ -34,5 +34,3 @@ Este documento descreve o passo a passo para configurar e iniciar a aplicação 
     git checkout -b nome-da-sua-branch
    ```
 
-# projeto-integrador
- 
