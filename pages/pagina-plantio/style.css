@@ -1,20 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&display=swap');
+
 /* --- CONFIGURAÇÕES GERAIS E FONTES --- */
 :root {
     /* Cores das páginas */
     --cor-principal: #7DBC7A;
     --cor-secundaria: #A0D49E;
     --cor-fundo-claro: #E3F9E2;
-    --cor-fundo: #F8F8F3;
-    
+    --cor-fundo: #F8F8F3; /* Fundo original com padrão */
+
     /* Cores das fontes */
     --cor-branco: #FFFFFF;
     --cor-verde-profundo: #3D5E3E;
+    --cor-texto: #4A4A4A; /* Cor de texto para parágrafos */
 
     /* Detalhes */
     --cor-cinza-detalhes: #DFDDDB;
 
     /* Fontes */
-    --fonte-principal: 'Eczer', serif;
+    --fonte-principal: 'Eczar', serif;
 }
 
 * {
@@ -23,174 +26,253 @@
     box-sizing: border-box;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
 body {
     font-family: var(--fonte-principal);
-    background-color: var(--cor-fundo);
-    background-image: url('input_file_7.png');
-    background-attachment: fixed; /* Mantém a imagem de fundo fixa durante o scroll */
-    color: var(--cor-verde-profundo);
+    background-color: var(--cor-branco);
+    color: var(--cor-texto);
     line-height: 1.7;
 }
 
 .container {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 40px;
-    background-color: var(--cor-branco);
+    background-image: url('../../static/background-image.png');
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* --- CABEÇALHO E NAVEGAÇÃO --- */
-.header {
+.cabecalho {
     background-color: var(--cor-principal);
-    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 70px;
+    position: relative;
+    z-index: 10;
 }
 
-.top-bar {
+.cabecalho::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), transparent);
+}
+
+.header-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: 35px;
 }
 
 .logo img {
-    height: 50px; /* Ajustado para melhor visualização */
+    height: 70px;
     vertical-align: middle;
-    filter: brightness(0) invert(1); /* Deixa o logo branco para contrastar com o fundo verde */
 }
 
-.nav-links {
-    flex-grow: 1;
-    text-align: center;
+nav {
+    display: flex;
+    gap: 35px;
 }
 
-.nav-links ul {
-    list-style: none;
-    display: inline-flex;
-    gap: 40px;
-    padding: 0;
-}
-
-.nav-links a {
+nav a {
     text-decoration: none;
     color: var(--cor-branco);
-    font-weight: 500;
     font-size: 18px;
-    padding-bottom: 5px;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-/* --- BARRA DE PESQUISA --- */
-.search-bar {
-    position: relative;
-    width: 220px;
+nav a:hover {
+    color: var(--cor-fundo-claro);
+    text-decoration: underline;
 }
 
-.search-bar input {
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.busca {
+    display: flex;
+    align-items: center;
     background-color: var(--cor-branco);
-    border: 1px solid var(--cor-cinza-detalhes);
-    border-radius: 20px;
-    padding: 8px 40px 8px 15px;
-    font-size: 14px;
-    color: var(--cor-verde-profundo);
-    width: 100%;
-    outline: none;
+    border-radius: 25px;
+    height: 38px;
+    width: 220px;
+    padding: 0 12px;
 }
 
-.search-bar button {
+.busca input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    background: transparent;
+    font-family: 'Eczar', serif;
+    color: var(--cor-verde-profundo);
+}
+
+.busca input::placeholder {
+    color: #aaa;
+}
+
+.botao-busca {
     background: none;
     border: none;
-    color: var(--cor-verde-profundo);
-    font-size: 18px;
     cursor: pointer;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 38px;
+    margin-left: 3px;
+    transition: transform 0.2s ease;
+}
+
+.botao-busca:hover {
+    transform: scale(1.1);
+}
+
+.botao-busca i {
+    color: var(--cor-branco);
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.botao-busca i:hover {
+    color: var(--cor-fundo-claro);
 }
 
 /* --- ESTILOS DO CONTEÚDO PRINCIPAL --- */
-h3 {
+main section {
+    margin-bottom: 40px;
+}
+
+h2 {
     font-size: 1.8em;
     font-weight: 600;
     color: var(--cor-verde-profundo);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 p {
     margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1.1rem;
 }
 
-section {
-    margin-bottom: 30px;
-}
-
-.divider {
-    text-align: center;
+.content-image {
     margin: 40px 0;
 }
-.divider img {
-    width: 100%;
-    max-width: 400px;
-    /* Invertendo a cor do divisor para branco, como no design */
-    filter: invert(100%); 
-}
 
-
-/* --- CARROSSEL --- */
-.swiper {
+.content-image img {
     width: 100%;
-    margin: 30px 0;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.swiper img {
-    width: 100%;
-    height: 400px; /* Altura fixa para as imagens do carrossel */
-    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    max-height: 400px;
     display: block;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
 }
 
-.carousel-caption {
-    text-align: center;
-    font-style: italic;
-    color: #777;
-    margin-top: 10px;
-    font-size: 0.9em;
+/* Estilos para os divisores decorativos */
+.decorative-divider, .decorative-divider-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem 0;
+}
+
+.decorative-divider img, .decorative-divider-line img {
+    height: 80px;
+    margin: 0px;
+    width: 100%;
+    opacity: 0.3;
 }
 
 /* --- RODAPÉ --- */
-.footer {
+footer {
     background-color: var(--cor-principal);
     color: var(--cor-branco);
     text-align: center;
     padding: 30px 20px;
-    margin-top: 50px;
+    margin-top: auto; /* Garante que o rodapé fique no final */
 }
 
-.footer p {
+footer p {
     font-size: 1.2em;
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 5px 0;
+    text-align: center;
 }
 
-.footer span {
+footer a {
+    color: var(--branco);
+    font-weight: 600;
+    margin-left: 0.25rem;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer span {
     font-size: 0.9em;
 }
 
-/* --- ESTILIZAÇÃO DO SWIPER (CARROSSEL) --- */
-.swiper .swiper-button-next,
-.swiper .swiper-button-prev {
-    color: var(--cor-principal); /* Cor das setas de navegação */
+/* ===== ESTILO DE DESTAQUE DA BUSCA ===== */
+.highlight {
+    background-color: yellow;
+    color: black;
 }
 
-.swiper .swiper-pagination-bullet {
-    background-color: var(--cor-cinza-detalhes); /* Cor das bolinhas de paginação inativas */
-    opacity: 0.8;
-}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    
+    .cabecalho {
+        padding: 10px 20px;
+        flex-direction: column;
+        height: auto;
+    }
 
-.swiper .swiper-pagination-bullet-active {
-    background-color: var(--cor-principal); /* Cor da bolinha de paginação ativa */
+    .header-left {
+        margin-bottom: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+    
+    nav a {
+        font-size: 16px;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: center;
+    }
 }

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&display=swap');
 
 :root {
@@ -21,20 +22,13 @@ body {
     background-color: var(--branco);
     /* Fundo da página agora é branco */
     color: var(--verde-profundo);
-
-    /* Metodo de centralização robusto com Flexbox */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 2rem;
-    /* Remove o espaçamento do topo e mantém na base */
 }
 
 /* Wrapper para criar layout encaixotado com espaçamento lateral */
 .page-wrapper {
     max-width: 960px;
     width: 100%;
-    /* Garante que o wrapper se ajuste dentro dos limites do flex */
+    margin: 2rem auto;
 
     /* Fundo verde claro com padrão sutil, conforme a nova imagem */
     background-color: var(--fundo-verde-claro);
@@ -61,6 +55,8 @@ body {
     padding: 0 40px;
     height: 70px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não afete a largura total */
 }
 
 .header-left {
@@ -78,7 +74,7 @@ body {
 }
 
 .logo img {
-    height: 70px;
+    height: 80px;
     vertical-align: middle;
 }
 
@@ -303,6 +299,14 @@ footer {
     text-align: center;
     padding: 1rem 0;
     font-size: 20px ;
+    width: 100%;
+}
+
+footer p {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    text-align: center;
 }
 
 footer a {
@@ -311,6 +315,10 @@ footer a {
     margin-left: 0.25rem;
     text-decoration: none;
     transition: text-decoration 0.3s;
+}
+
+footer span {
+    font-size: 0.9em;
 }
 
 footer a:hover {
@@ -337,11 +345,6 @@ footer a:hover {
 
     .page-wrapper {
         width: calc(100% - 2rem);
-        margin: 1rem;
-        border-radius: 6px;
-    }
-
-    body {
-        padding: 0;
+        margin: 1rem auto;
     }
 }
