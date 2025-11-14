@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&display=swap');
+
+:root {
+    /* CORES DAS FONTES */
+    --branco: #FFFFFF;
+    --verde-profundo: #5D5E3E;
+
+    /* CORES DA PÁGINA */
+    --verde-principal: #7DBC7A;
+    --verde-secundario: #A0D49E;
+    --fundo-verde-claro: #E3F9E2;
+    --background-color: #F8F8F3;
+
+    /* DETALHES (LINHAS, ETC) */
+    --cinza: #DFDDDB;
+}
+
+body {
+    margin: 0;
+    font-family: "Eczar", serif;
+    background-color: var(--branco);
+    /* Fundo da página agora é branco */
+    color: var(--verde-profundo);
+
+    /* Metodo de centralização robusto com Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    /* Remove o espaçamento do topo e mantém na base */
+}
+
+/* Wrapper para criar layout encaixotado com espaçamento lateral */
+.page-wrapper {
+    max-width: 960px;
+    width: 100%;
+    /* Garante que o wrapper se ajuste dentro dos limites do flex */
+
+    /* Fundo verde claro com padrão sutil, conforme a nova imagem */
+    background-color: var(--fundo-verde-claro);
+    background-image: url('../../static/background-image.png');
+    /* Padrão de fundo sutil */
+    background-size: cover;
+    background-position: center;
+
+    color: var(--verde-profundo);
+    /* Cor do texto corrigida para escuro */
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    /* Garante que o conteúdo respeite o border-radius */
+}
+
+/* ===== HEADER ===== */
+.cabecalho {
+    background-color: var(--verde-principal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 70px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.logo a {
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 24px;
+    color: var(--branco);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 70px;
+    vertical-align: middle;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--branco);
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: var(--fundo-verde-claro);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.busca {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 25px;
+    height: 38px;
+    width: 220px;
+    padding: 0 12px;
+}
+
+.busca input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    background: transparent;
+}
+
+.botao-busca {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 38px;
+    margin-left: 3px;
+    transition: transform 0.2s ease;
+}
+
+.botao-busca:hover {
+    transform: scale(1.1);
+}
+
+.botao-busca i {
+    color: var(--branco);
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.botao-busca i:hover {
+    color: var(--fundo-verde-claro);
+}
+
+/* ===== MAIN CONTENT ===== */
+main .container {
+    max-width: 896px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    /* Sombra removida para fundo claro */
+}
+
+section p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    /* Sombra removida para fundo claro */
+}
+
+/* ===== DIVIDERS ===== */
+.decorative-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem 0;
+}
+
+.decorative-divider img {
+    height: 80px;
+    width: 100%;
+    opacity: 0.5;
+}
+
+section:first-child .decorative-divider {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+section:last-child .decorative-divider {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== IMAGE CAROUSEL ===== */
+.carousel-section {
+    margin: 3rem 0;
+}
+
+.image-carousel {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: var(--verde-principal);
+    border-radius: 1rem;
+    /* Bordas mais arredondadas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Sombra mais pronunciada */
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+/* ===== TEAM SECTION ===== */
+.team-section {
+    background-color: var(--verde-principal);
+    padding: 40px 0;
+    color: var(--branco);
+}
+
+.team-section .container {
+    max-width: 896px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.team-section h2 {
+    color: var(--branco);
+    margin-bottom: 2rem;
+}
+
+.team-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.team-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.team-slide.active {
+    opacity: 1;
+}
+
+.team-slide img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--branco);
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.team-slide figcaption {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+
+/* ===== ESTILO DE DESTAQUE DA BUSCA ===== */
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--verde-principal);
+    color: var(--branco);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 20px ;
+}
+
+footer a {
+    color: var(--branco);
+    font-weight: 600;
+    margin-left: 0.25rem;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cabecalho {
+        padding: 0 20px;
+    }
+
+    .header-left {
+        gap: 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .busca {
+        width: 180px;
+    }
+
+    .page-wrapper {
+        width: calc(100% - 2rem);
+        margin: 1rem;
+        border-radius: 6px;
+    }
+
+    body {
+        padding: 0;
+    }
+}
