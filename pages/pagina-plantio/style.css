@@ -191,6 +191,39 @@ p {
     object-position: center;
 }
 
+/*IMAGEM CARROSSEL*/
+.carousel-section {
+    margin: 3rem 0;
+}
+
+.image-carousel {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: var(--verde-principal);
+    border-radius: 1rem;
+    /* Bordas mais arredondadas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* Sombra mais pronunciada */
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
 /* Estilos para os divisores decorativos */
 .decorative-divider, .decorative-divider-line {
     display: flex;
