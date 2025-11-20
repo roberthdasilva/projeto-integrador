@@ -1,12 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantas - Viveiro IF Sertão</title>
     <link rel="stylesheet" href="../../style.css">
-    <title>Página de Plantas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
-    
+    <header class="cabecalho">
+        <div class="header-left">
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="../../static/logo-if.png" alt="Logo do Instituto Federal">
+                </a>
+            </div>
+            <nav>
+                <a href="../../index.html">Início</a>
+                <a href="#">Plantas</a>
+                <a href="../pagina-plantio/pagina-plantio.html">Cuidados</a>
+            </nav>
+        </div>
+        <div class="search-container">
+            <div class="busca">
+                <input type="text" placeholder="Buscar...">
+            </div>
+            <button class="botao-busca">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <main>
+            <div class="container">
+                <!-- SEÇÃO DE FILTROS -->
+                <section class="filtros-container">
+                    <span class="filtros-label">Filtros:</span>
+                    <div class="botoes-filtro">
+                        <button class="filtro-btn active" data-filter="todos">Todos</button>
+                        <button class="filtro-btn" data-filter="medicinal">Planta Medicinal</button>
+                        <button class="filtro-btn" data-filter="viveiro">Viveiro</button>
+                        <button class="filtro-btn" data-filter="horta">Horta</button>
+                    </div>
+                </section>
+
+                <!-- NOVA SEÇÃO DE IMAGENS EM DESTAQUE -->
+                <section class="image-showcase">
+                    <div class="showcase-item">
+                        <img src="../../static/medicinal-placeholder.png" alt="Espaço para plantas medicinais">
+                        <p>Plantas medicinais</p>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="../../static/horta-geral.jpg" alt="Visão geral da horta">
+                        <p>Horta</p>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="../../static/viveiro-geral.jpg" alt="Visão geral do viveiro">
+                        <p>Viveiro</p>
+                    </div>
+                </section>
+                
+                <!-- SEÇÃO DE TEXTO PRINCIPAL -->
+                <section class="main-text">
+                    <p>O viveiro do Instituto ocupa uma área de aproximadamente 20 por 8 metros. Já a horta conta com cinco canteiros de 15 metros e foi recentemente ampliada, recebendo mais cinco canteiros de 5 metros cada. São cultivadas diversas espécies tanto na horta quanto no viveiro. O cultivo das espécies que têm maior capacidade produtiva na região, sendo adaptadas às condições do local e de consumo geral da comunidade. As escolhas do viveiro são baseadas no projeto de preservação do bioma caatinga. São espécies voltadas para o reflorestamento e para a conscientização da população sobre a importância de espécies nativas da caatinga.</p>
+                    <p>O calendário de plantio e colheita se baseia nos projetos. O calendário acompanha geralmente o cronograma escolar dos alunos que têm aulas práticas ou que estão fazendo projetos que usam a horta.</p>
+                </section>
+
+                <!-- DIVISOR DECORATIVO -->
+                <div class="decorative-divider-line">
+                    <img src="../../static/detalhe-linha-1.png" alt="Linha decorativa">
+                </div>
+
+                <!-- NOVA SEÇÃO "A HORTA" -->
+                <section class="horta-details">
+                    <h2>A Horta</h2>
+                    <p>Na horta, as hortaliças mais trabalhadas incluem coentro, cenoura, alface, beterraba, tomate, pimentão, pimentinha, cebolinha, berinjela, tomate-cereja, couve, couve-manteiga, quiabo e, mais recentemente, a couve-flor. Essas são as culturas mais comuns cultivadas no local.</p>
+                </section>
+
+                <!-- GRADE DE PLANTAS (FILTRÁVEL) -->
+                <section class="grid-plantas">
+                    <!-- Cards de plantas preenchidos dinamicamente aqui -->
+                    <div class="planta-card" data-category="viveiro">
+                        <img src="../../static/caraibeira.jpg" alt="Planta Caraibeira">
+                        <h3>Caraibeira</h3>
+                        <p>Nome científico</p>
+                        <a href="#">Mais infos</a>
+                    </div>
+                    <div class="planta-card" data-category="horta">
+                        <img src="../../static/tomate.jpg" alt="Planta de Tomate">
+                        <h3>Tomate</h3>
+                        <p>Solanum lycopersicum</p>
+                        <a href="#">Mais infos</a>
+                    </div>
+                    <div class="planta-card" data-category="viveiro">
+                        <img src="../../static/jatoba.jpg" alt="Planta Jatobá">
+                        <h3>Jatobá</h3>
+                        <p>Hymenaea courbaril</p>
+                        <a href="#">Mais infos</a>
+                    </div>
+                    <div class="planta-card" data-category="medicinal">
+                        <img src="../../static/boldo.jpg" alt="Planta Boldo">
+                        <h3>Boldo</h3>
+                        <p>Peumus boldus</p>
+                        <a href="#">Mais infos</a>
+                    </div>
+                    <div class="planta-card" data-category="viveiro">
+                        <img src="../../static/angico.jpg" alt="Planta Angico">
+                        <h3>Angico</h3>
+                        <p>Anadenanthera colubrina</p>
+                        <a href="#">Mais infos</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>Entre em contato por meio do Instagram:
+            <a href="https://www.instagram.com/" target="_blank">@viveiro_if</a>
+        </p>
+        <span>Siga-nos em nossas redes sociais</span>
+    </footer>
+
+    <script src="../../script.js"></script>
 </body>
+
 </html>
