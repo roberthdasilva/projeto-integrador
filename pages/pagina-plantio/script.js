@@ -3,29 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mapeia os seletores dos carrosséis para suas respectivas listas de imagens
     const carouselsData = {
         '#carousel-destaque': [
-            '../../static/viveiro-img1.png',
-            '../../static/viveiro-img3.png',
-            '../../static/viveiro-img5.png',
-            '../../static/viveiro-img6.png',
-            '../../static/viveiro-img4.png',
-            '../../static/viveiro-img2.png',
-            '../../static/viveiro-img7.png'
+            '../../static/roca-img1.png',
+            '../../static/roca-img2.png',
+            '../../static/roca-img3.png',
         ],
-        '#carousel-viveiro': [
-            '../../static/viveiro-img2.png',
-            '../../static/viveiro-img4.png',
-            '../../static/viveiro-img6.png',
-            '../../static/viveiro-img7.png',
-            '../../static/viveiro-img3.png',
-            '../../static/viveiro-img1.png',
-            '../../static/viveiro-img5.png',
-        ]
     };
 
     // Itera sobre os dados e inicializa cada carrossel
     Object.entries(carouselsData).forEach(([selector, images]) => {
         const carouselElement = document.querySelector(selector);
-        
+
         if (carouselElement) {
             let currentIndex = 0;
             const slides = [];
@@ -35,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const slide = document.createElement('div');
                 slide.className = 'carousel-slide';
                 slide.style.backgroundImage = `url('${src}')`;
-                
+
                 // Atributos para acessibilidade
                 slide.setAttribute('role', 'img');
                 slide.setAttribute('aria-label', `Slide ${index + 1}`);
@@ -46,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     slide.setAttribute('aria-hidden', 'true');
                 }
-                
+
                 carouselElement.appendChild(slide);
                 slides.push(slide);
             });
@@ -57,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 slides[currentIndex].setAttribute('aria-hidden', 'true');
 
                 currentIndex = (currentIndex + 1) % images.length;
-                
+
                 slides[currentIndex].classList.add('active');
                 slides[currentIndex].setAttribute('aria-hidden', 'false');
             }
@@ -66,44 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setInterval(showNextImage, 4000);
         }
     });
-
-
-    // --- CARROSSEL DA EQUIPE ---
-    const teamMembers = [
-        { name: 'Professor José', image: '../../static/professor-teste-1.png' },
-        { name: 'Professor Carlos', image: '../../static/professor-teste-2.png' },
-        { name: 'Professora Beatriz', image: '../../static/professor-teste-3.png' }
-    ];
-
-    const teamCarouselContainer = document.querySelector('.team-carousel-container');
-    if (teamCarouselContainer) {
-        let currentTeamIndex = 0;
-        const teamSlides = [];
-
-        teamMembers.forEach((member, index) => {
-            const slide = document.createElement('figure');
-            slide.className = 'team-slide';
-            slide.innerHTML = `
-                <img src="${member.image}" alt="Foto de ${member.name}">
-                <figcaption>${member.name}</figcaption>
-            `;
-
-            if (index === 0) slide.classList.add('active');
-            
-            teamCarouselContainer.appendChild(slide);
-            teamSlides.push(slide);
-        });
-
-        function showNextTeamMember() {
-            if (teamSlides.length <= 1) return; // Não roda o carrossel se tiver 1 ou 0 imagens
-            teamSlides[currentTeamIndex].classList.remove('active');
-            currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
-            teamSlides[currentTeamIndex].classList.add('active');
-        }
-
-        setInterval(showNextTeamMember, 4000);
-    }
-
 
     // --- FUNCIONALIDADE DE BUSCA ---
     const searchInput = document.querySelector('.busca input');
@@ -122,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function highlightText(element, searchTerm) {
         if (!element || !searchTerm.trim()) return false;
-        
+
         const regex = new RegExp(searchTerm, 'gi');
         const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
         let node;
@@ -144,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const parts = textNode.nodeValue.split(regex);
             const matches = textNode.nodeValue.match(regex);
-            
+
             parts.forEach((part, index) => {
                 if (part) {
                     parent.insertBefore(document.createTextNode(part), textNode);
@@ -168,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchTerm === "") {
             return;
         }
-        
+
         const found = highlightText(document.querySelector('.page-wrapper'), searchTerm);
 
         if (found) {

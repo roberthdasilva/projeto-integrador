@@ -1,14 +1,321 @@
-:root{
-    /*CORES DAS FONTES*/
-    --branco: #FFFFFF;
-    --verde-profundo: #5D5E3E;
+@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&display=swap');
 
-    /*CORES DA PÁGINA*/
-    --verde-principal: #7DBC7A;
-    --verde-secundario: #A0D49E;
-    --fundo-verde-claro: #E3F9E2;
-    --background-color: #F8F8F3;
+/* --- CONFIGURAÇÕES GERAIS E FONTES --- */
+:root {
+    /* Cores das páginas */
+    --cor-principal: #7DBC7A;
+    --cor-secundaria: #A0D49E;
+    --cor-fundo-claro: #E3F9E2;
+    --cor-fundo: #F8F8F3;
+    /* Fundo original com padrão */
 
-    /*DETALHES (LINHAS, ETC)*/
-    --cinza: #DFDDDB;
+    /* Cores das fontes */
+    --cor-branco: #FFFFFF;
+    --cor-verde-profundo: #3D5E3E;
+    --cor-texto: #4A4A4A;
+    /* Cor de texto para parágrafos */
+
+    /* Detalhes */
+    --cor-cinza-detalhes: #DFDDDB;
+
+    /* Fontes */
+    --fonte-principal: 'Eczar', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-branco);
+    color: var(--cor-texto);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 40px;
+    background-image: url('../../static/background-image.png');
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+.cabecalho {
+    background-color: var(--cor-principal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 70px;
+    position: relative;
+    z-index: 10;
+}
+
+.cabecalho::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), transparent);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.logo img {
+    height: 70px;
+    vertical-align: middle;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--cor-branco);
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--cor-fundo-claro);
+    text-decoration: underline;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.busca {
+    display: flex;
+    align-items: center;
+    background-color: var(--cor-branco);
+    border-radius: 25px;
+    height: 38px;
+    width: 220px;
+    padding: 0 12px;
+}
+
+.busca input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 14px;
+    background: transparent;
+    font-family: 'Eczar', serif;
+    color: var(--cor-verde-profundo);
+}
+
+.busca input::placeholder {
+    color: #aaa;
+}
+
+.botao-busca {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 38px;
+    margin-left: 3px;
+    transition: transform 0.2s ease;
+}
+
+.botao-busca:hover {
+    transform: scale(1.1);
+}
+
+.botao-busca i {
+    color: var(--cor-branco);
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.botao-busca i:hover {
+    color: var(--cor-fundo-claro);
+}
+
+/* --- ESTILOS DO CONTEÚDO PRINCIPAL --- */
+main section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--cor-verde-profundo);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.content-image {
+    margin: 40px 0;
+}
+
+.content-image img {
+    width: 100%;
+    max-height: 400px;
+    display: block;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*IMAGEM CARROSSEL*/
+.carousel-section {
+    margin: 3rem 0;
+}
+
+.image-carousel {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: var(--cor-principal);
+    /* corrigido */
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* adicionado */
+    height: 100%;
+    /* adicionado */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    /* adicionado */
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 2;
+    /* garante que fica por cima */
+}
+
+/* Estilos para os divisores decorativos */
+.decorative-divider,
+.decorative-divider-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2.5rem 0;
+}
+
+.decorative-divider img,
+.decorative-divider-line img {
+    height: 80px;
+    margin: 0px;
+    width: 100%;
+    opacity: 0.3;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto;
+    /* Garante que o rodapé fique no final */
+}
+
+footer p {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+footer a {
+    color: var(--branco);
+    font-weight: 600;
+    margin-left: 0.25rem;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer span {
+    font-size: 0.9em;
+}
+
+/* ===== ESTILO DE DESTAQUE DA BUSCA ===== */
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .cabecalho {
+        padding: 10px 20px;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .header-left {
+        margin-bottom: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: center;
+    }
 }
