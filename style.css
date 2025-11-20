@@ -2,23 +2,14 @@
 
 /* --- CONFIGURAÇÕES GERAIS E FONTES --- */
 :root {
-    /* Cores das páginas */
     --cor-principal: #7DBC7A;
     --cor-secundaria: #A0D49E;
     --cor-fundo-claro: #E3F9E2;
     --cor-fundo: #F8F8F3;
-    /* Fundo original com padrão */
-
-    /* Cores das fontes */
     --cor-branco: #FFFFFF;
     --cor-verde-profundo: #3D5E3E;
     --cor-texto: #4A4A4A;
-    /* Cor de texto para parágrafos */
-
-    /* Detalhes */
     --cor-cinza-detalhes: #DFDDDB;
-
-    /* Fontes */
     --fonte-principal: 'Eczar', serif;
 }
 
@@ -180,20 +171,7 @@ p {
     font-size: 1.1rem;
 }
 
-.content-image {
-    margin: 40px 0;
-}
-
-.content-image img {
-    width: 100%;
-    max-height: 400px;
-    display: block;
-    border-radius: 8px;
-    object-fit: cover;
-    object-position: center;
-}
-
-/*IMAGEM CARROSSEL*/
+/* --- CARROSSEL --- */
 .carousel-section {
     margin: 3rem 0;
 }
@@ -203,7 +181,6 @@ p {
     width: 100%;
     height: 320px;
     background-color: var(--cor-principal);
-    /* corrigido */
     border-radius: 1rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -214,24 +191,20 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    /* adicionado */
     height: 100%;
-    /* adicionado */
     opacity: 0;
     transition: opacity 1s ease-in-out;
     background-size: cover;
     background-position: center;
     z-index: 1;
-    /* adicionado */
 }
 
 .carousel-slide.active {
     opacity: 1;
     z-index: 2;
-    /* garante que fica por cima */
 }
 
-/* Estilos para os divisores decorativos */
+/* --- DIVISORES DECORATIVOS --- */
 .decorative-divider,
 .decorative-divider-line {
     display: flex;
@@ -243,7 +216,7 @@ p {
 .decorative-divider img,
 .decorative-divider-line img {
     height: 80px;
-    margin: 0px;
+    margin: 0;
     width: 100%;
     opacity: 0.3;
 }
@@ -255,7 +228,6 @@ footer {
     text-align: center;
     padding: 30px 20px;
     margin-top: auto;
-    /* Garante que o rodapé fique no final */
 }
 
 footer p {
@@ -266,7 +238,7 @@ footer p {
 }
 
 footer a {
-    color: var(--branco);
+    color: var(--cor-branco);
     font-weight: 600;
     margin-left: 0.25rem;
     text-decoration: none;
@@ -281,13 +253,156 @@ footer span {
     font-size: 0.9em;
 }
 
-/* ===== ESTILO DE DESTAQUE DA BUSCA ===== */
-.highlight {
-    background-color: yellow;
-    color: black;
+/* 
+===========================================================
+=== INÍCIO: ESTILOS ESPECÍFICOS PARA A PÁGINA DE PLANTAS ===
+===========================================================
+*/
+
+/* --- Container dos Filtros --- */
+.filtros-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 20px;
+    border: 1px solid var(--cor-cinza-detalhes);
+    background-color: #fff;
+    border-radius: 8px;
 }
 
-/* Responsive adjustments */
+.filtros-label {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--cor-verde-profundo);
+}
+
+.botoes-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botoes-filtro .filtro-btn {
+    font-family: var(--fonte-principal);
+    background-color: transparent;
+    border: 1px solid var(--cor-cinza-detalhes);
+    color: var(--cor-texto);
+    padding: 8px 18px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.botoes-filtro .filtro-btn:hover {
+    background-color: var(--cor-fundo-claro);
+    border-color: var(--cor-secundaria);
+}
+
+.botoes-filtro .filtro-btn.active {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+    border-color: var(--cor-principal);
+    font-weight: 500;
+}
+
+/* --- Seção de Imagens em Destaque --- */
+.image-showcase {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    margin: 10px 0 40px 0;
+    flex-wrap: wrap;
+}
+
+.showcase-item {
+    width: 200px;
+}
+
+.showcase-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--cor-cinza-detalhes);
+    background-color: var(--cor-fundo-claro);
+}
+
+.showcase-item p {
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--cor-texto);
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* --- Seção de Detalhes da Horta --- */
+.horta-details {
+    margin-top: 40px;
+}
+.horta-details p{
+    text-align: center;
+}
+
+/* --- Grade de Cards das Plantas --- */
+.grid-plantas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.planta-card {
+    background-color: #fff;
+    border: 1px solid var(--cor-cinza-detalhes);
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.planta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.planta-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.planta-card h3 {
+    font-size: 1.25rem;
+    color: var(--cor-verde-profundo);
+    margin-bottom: 5px;
+}
+
+.planta-card p {
+    font-size: 1rem;
+    color: #888;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.planta-card a {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--cor-principal);
+    text-decoration: none;
+}
+
+/* 
+=========================
+=== AJUSTES RESPONSIVOS ===
+=========================
+*/
 @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -318,4 +433,33 @@ footer span {
         width: 100%;
         justify-content: center;
     }
+
+    /* --- Ajustes responsivos para a página de plantas --- */
+    .horta-details p {
+        text-align: justify;
+    }
+
+    /* === INÍCIO: MELHORIAS NOS CARDS RESPONSIVOS === */
+    .grid-plantas {
+        grid-template-columns: repeat(2, 1fr); /* Força duas colunas em telas menores */
+        gap: 15px; /* Reduz o espaçamento entre os cards */
+    }
+
+    .planta-card {
+        padding: 10px; /* Reduz o preenchimento interno */
+    }
+
+    .planta-card img {
+        height: 140px; /* Diminui a altura da imagem */
+    }
+
+    .planta-card h3 {
+        font-size: 1.1rem; /* Diminui o tamanho do título */
+    }
+
+    .planta-card p,
+    .planta-card a {
+        font-size: 0.9rem; /* Diminui o texto e o link */
+    }
+    /* === FIM: MELHORIAS NOS CARDS RESPONSIVOS === */
 }
