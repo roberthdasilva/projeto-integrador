@@ -6,12 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
             '../../static/viveiro-img1.png',
             '../../static/viveiro-img3.png',
             '../../static/viveiro-img5.png',
+            '../../static/viveiro-img6.png',
+            '../../static/viveiro-img4.png',
+            '../../static/viveiro-img2.png',
+            '../../static/viveiro-img7.png'
         ],
         '#carousel-viveiro': [
             '../../static/viveiro-img2.png',
             '../../static/viveiro-img4.png',
             '../../static/viveiro-img6.png',
-            '../../static/viveiro-img7.png'
+            '../../static/viveiro-img7.png',
+            '../../static/viveiro-img3.png',
+            '../../static/viveiro-img1.png',
+            '../../static/viveiro-img5.png',
         ]
     };
 
