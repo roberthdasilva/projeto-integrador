@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CARROSSEL DA EQUIPE ---
     const teamMembers = [
-        { name: 'Professor José', image: '../../static/professor-teste-1.png' },
-        { name: 'Professor Carlos', image: '../../static/professor-teste-2.png' },
-        { name: 'Professora Beatriz', image: '../../static/professor-teste-3.png' }
+        { name: 'Professor José', image: 'static/professor-teste-1.png' },
+        { name: 'Professor Carlos', image: 'static/professor-teste-2.png' },
+        { name: 'Professora Beatriz', image: 'static/professor-teste-3.png' }
     ];
 
     const teamCarouselContainer = document.querySelector('.team-carousel-container');
