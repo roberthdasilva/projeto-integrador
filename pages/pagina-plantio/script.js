@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const found = highlightText(document.querySelector('.page-wrapper'), searchTerm);
+        const found = highlightText(document.querySelector('main'), searchTerm);
 
         if (found) {
             const firstHighlight = document.querySelector('.highlight');
