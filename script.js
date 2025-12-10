@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mapeia os seletores dos carrosséis para suas respectivas listas de imagens
     const carouselsData = {
         '#carousel-destaque': [
-            'static/viveiro-img1.png',
-            'static/viveiro-img3.png',
-            'static/viveiro-img5.png',
-            'static/viveiro-img6.png',
-            'static/viveiro-img4.png',
-            'static/viveiro-img2.png',
-            'static/viveiro-img7.png'
+            '../../static/viveiro-img1.png',
+            '../../static/viveiro-img3.png',
+            '../../static/viveiro-img5.png',
+            '../../static/viveiro-img6.png',
+            '../../static/viveiro-img4.png',
+            '../../static/viveiro-img2.png',
+            '../../static/viveiro-img7.png'
         ],
         '#carousel-viveiro': [
-            'static/viveiro-img2.png',
-            'static/viveiro-img4.png',
-            'static/viveiro-img6.png',
-            'static/viveiro-img7.png',
-            'static/viveiro-img3.png',
-            'static/viveiro-img1.png',
-            'static/viveiro-img5.png',
+            '../../static/viveiro-img2.png',
+            '../../static/viveiro-img4.png',
+            '../../static/viveiro-img6.png',
+            '../../static/viveiro-img7.png',
+            '../../static/viveiro-img3.png',
+            '../../static/viveiro-img1.png',
+            '../../static/viveiro-img5.png',
         ]
     };
 
@@ -66,44 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setInterval(showNextImage, 4000);
         }
     });
-
-
-    // --- CARROSSEL DA EQUIPE ---
-    const teamMembers = [
-        { name: 'Professor José', image: 'static/professor-teste-1.png' },
-        { name: 'Professor Carlos', image: 'static/professor-teste-2.png' },
-        { name: 'Professora Beatriz', image: 'static/professor-teste-3.png' }
-    ];
-
-    const teamCarouselContainer = document.querySelector('.team-carousel-container');
-    if (teamCarouselContainer) {
-        let currentTeamIndex = 0;
-        const teamSlides = [];
-
-        teamMembers.forEach((member, index) => {
-            const slide = document.createElement('figure');
-            slide.className = 'team-slide';
-            slide.innerHTML = `
-                <img src="${member.image}" alt="Foto de ${member.name}">
-                <figcaption>${member.name}</figcaption>
-            `;
-
-            if (index === 0) slide.classList.add('active');
-            
-            teamCarouselContainer.appendChild(slide);
-            teamSlides.push(slide);
-        });
-
-        function showNextTeamMember() {
-            if (teamSlides.length <= 1) return; // Não roda o carrossel se tiver 1 ou 0 imagens
-            teamSlides[currentTeamIndex].classList.remove('active');
-            currentTeamIndex = (currentTeamIndex + 1) % teamMembers.length;
-            teamSlides[currentTeamIndex].classList.add('active');
-        }
-
-        setInterval(showNextTeamMember, 4000);
-    }
-
 
     // --- FUNCIONALIDADE DE BUSCA ---
     const searchInput = document.querySelector('.busca input');

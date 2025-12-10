@@ -171,6 +171,11 @@ p {
     font-size: 1.1rem;
 }
 
+.highlight {
+    background-color: yellow;
+    color: black;
+}
+
 /* --- CARROSSEL --- */
 .carousel-section {
     margin: 3rem 0;
