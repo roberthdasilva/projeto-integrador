@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mapeia os seletores dos carrosséis para suas respectivas listas de imagens
     const carouselsData = {
         '#carousel-destaque': [
-            '/projeto-integrador/static/viveiro-img1.png',
-            '/projeto-integrador/static/viveiro-img3.png',
-            '/projeto-integrador/static/viveiro-img5.png',
-            '/projeto-integrador/static/viveiro-img6.png',
-            '/projeto-integrador/static/viveiro-img4.png',
-            '/projeto-integrador/static/viveiro-img2.png',
-            '/projeto-integrador/static/viveiro-img7.png'
+            '/static/viveiro-img1.png',
+            '/static/viveiro-img3.png',
+            '/static/viveiro-img5.png',
+            '/static/viveiro-img6.png',
+            '/static/viveiro-img4.png',
+            '/static/viveiro-img2.png',
+            '/static/viveiro-img7.png'
         ],
         '#carousel-viveiro': [
-            '/projeto-integrador/static/viveiro-img2.png',
-            '/projeto-integrador/static/viveiro-img4.png',
-            '/projeto-integrador/static/viveiro-img6.png',
-            '/projeto-integrador/static/viveiro-img7.png',
-            '/projeto-integrador/static/viveiro-img3.png',
-            '/projeto-integrador/static/viveiro-img1.png',
-            '/projeto-integrador/static/viveiro-img5.png',
+            '/static/viveiro-img2.png',
+            '/static/viveiro-img4.png',
+            '/static/viveiro-img6.png',
+            '/static/viveiro-img7.png',
+            '/static/viveiro-img3.png',
+            '/static/viveiro-img1.png',
+            '/static/viveiro-img5.png',
         ]
     };
 
