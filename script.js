@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'static/viveiro-img6.png',
             'static/viveiro-img4.png',
             'static/viveiro-img2.png',
-            'static/viveiro-img7.png'
+            'static/viveiro-img7.png',
         ],
         '#carousel-viveiro': [
             'static/viveiro-img2.png',
