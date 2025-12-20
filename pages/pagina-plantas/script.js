@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         "Costela-de-adão": {
-            img: "../../static/costela-de-adao.png",
+            img: "../../static/costeleta-de-adao.png",
             cientifico: "Monstera deliciosa",
             descricao: "Planta de folhagem exótica muito usada em decoração.",
             curiosidade: "Os furos nas folhas ajudam a planta a resistir a ventos fortes na natureza.",
